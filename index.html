@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JohnWarioDev's Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black; /* Updated background color */
+            color: #fff; /* Updated text color */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .game {
+            margin-bottom: 2rem;
+            position: relative;
+            border: 6px solid #444; /* Added dark gray border */
+            text-align: center; /* Centered button and content */
+            padding: 1rem;
+        }
+        .game iframe {
+            width: calc(100% - 12px); /* Adjusted width to accommodate border */
+            height: 384px; /* Adjusted height for consistency */
+            border: none; /* Removed iframe border */
+            display: none; /* Hide iframe initially */
+        }
+        .game.large iframe {
+            height: 448px; /* Adjusted height for larger game */
+        }
+        .play-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JohnWarioDev's Games</h1>
+        <p>Welcome to my collection of web games!</p>
+    </header>
+    <div class="container">
+        <div class="game">
+            <h2>Ship Game</h2>
+            <button class="play-btn" onclick="playGame(this, 'https://flowlab.io/game/embed/2518451')">Play</button>
+            <iframe src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="game">
+            <h2>Shattered Industry</h2>
+            <button class="play-btn" onclick="playGame(this, 'https://flowlab.io/game/embed/2453048')">Play</button>
+            <iframe src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="game">
+            <h2>The Element Temple</h2>
+            <button class="play-btn" onclick="playGame(this, 'https://flowlab.io/game/embed/2346938')">Play</button>
+            <iframe src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="game large">
+            <h2>The Need to go Deeper</h2>
+            <button class="play-btn" onclick="playGame(this, 'https://flowlab.io/game/embed/2092013')">Play</button>
+            <iframe src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <footer>
+        <p>Contact: jwmario99@gmail.com</p>
+    </footer>
+    <script>
+        function playGame(button, url) {
+            var iframes = document.querySelectorAll('iframe');
+            var buttons = document.querySelectorAll('.play-btn');
+            
+            iframes.forEach(function(iframe) {
+                iframe.style.display = 'none';
+                iframe.src = ''; // Stop other iframes
+            });
+            
+            buttons.forEach(function(btn) {
+                btn.style.display = 'inline-block'; // Show all buttons
+            });
+
+            var iframe = button.nextElementSibling;
+            iframe.src = url;
+            iframe.style.display = 'block';
+            button.style.display = 'none'; // Hide clicked button
+        }
+    </script>
+</body>
+</html>
